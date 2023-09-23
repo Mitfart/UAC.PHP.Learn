@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0ffeb79e87eaed6f3c647e0091a30d55b3678fdfb2e5e83f6cb772c693615bc1
-size 275
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/UAC.PHP.Learn.iml" filepath="$PROJECT_DIR$/.idea/UAC.PHP.Learn.iml" />
+    </modules>
+  </component>
+</project>
