@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ec57795-275a-4ab4-8a2d-87f7a69e40a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/add_into_cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/connect.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/images/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/images/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/page_cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/page_main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023-09-22_shop/zarichan_shop.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/UAC.PHP.Learn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UAC.PHP.Learn.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +31,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_8" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_7_2" />
   <component name="ProjectId" id="2VljFYj0ZNICj6JKlyvLDagIlsk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,14 +45,27 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programs/JetBrains/PhpStorm/_php/php.exe&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programs/OSPanel/modules/php/PHP_7.2/php.exe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Web\UAC.PHP.Learn\2023-09-22_shop" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Web\UAC.PHP.Learn" />
+      <recent name="D:\Projects\Web\UAC.PHP.Learn\2023-09-22_shop\images" />
+      <recent name="D:\Projects\Web\UAC.PHP.Learn\2023-09-22_shop" />
+      <recent name="D:\Projects\Web\UAC.PHP.Learn\base" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,7 +76,11 @@
       <updated>1695417474450</updated>
       <workItem from="1695417474460" duration="1823000" />
       <workItem from="1695461099678" duration="599000" />
-      <workItem from="1695466453938" duration="305000" />
+      <workItem from="1695466453938" duration="3433000" />
+      <workItem from="1695471762808" duration="639000" />
+      <workItem from="1695494413114" duration="4389000" />
+      <workItem from="1695564592758" duration="7960000" />
+      <workItem from="1695639915815" duration="12774000" />
     </task>
     <servers />
   </component>
