@@ -2,7 +2,36 @@
 session_start();
 require_once "connect.php";
 
+
+if (isset($_POST['add'])) {
+    $product = $server->query("SELECT * FROM products WHERE id LIKE {$_POST['id']}")->fetch();
+
+    $amount = $_SESSION['cart'][$_POST['id']];
+    $amount++;
+    $amount = min($amount, $product['quantity']);
+    $_SESSION['cart'][$_POST['id']] = $amount;
+}
+if (isset($_POST['reduce'])) {
+    $amount = $_SESSION['cart'][$_POST['id']];
+    $amount--;
+    $_SESSION['cart'][$_POST['id']] = $amount;
+
+    if ($amount <= 0) $_POST['remove'] = true;
+}
+
 if (isset($_POST['remove'])) unset($_SESSION['cart'][$_POST['id']]);
+
+unset($_POST['remove']);
+unset($_POST['add']);
+unset($_POST['reduce']);
+unset($_POST['id']);
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    unset($_POST);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,55 +61,82 @@ if (isset($_POST['remove'])) unset($_SESSION['cart'][$_POST['id']]);
         $in = "";
         foreach ($_SESSION['cart'] as $id => $value) $in .= $id . ",";
         $in = substr($in, 0, -1);
-
-        $products = $server->query("SELECT * FROM products WHERE id IN ($in)");
-        ?>
-        <table class="table text-center">
-            <thead>
-            <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Amount</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            foreach ($products as $product) {
-                $id = $product['id'];
-
-                $card_id = "product_$id";
-                $card_id_description = "{$card_id}_description";
-                $card_id_modal = "{$card_id}_modal";
-                $card_id_modal_label = "{$card_id_modal}_label";
-                ?>
+        if ($in != '') {
+            $products = $server->query("SELECT * FROM products WHERE id IN ($in)");
+            ?>
+            <table class="table text-center" style="table-layout:fixed;">
+                <thead>
                 <tr>
-                    <td>
-                        <img class="card-img"
-                             style="width: 50px; height: 50px;"
-                             src="images/<?= $product["image"] ?>.jpg" alt="">
-                    </td>
-                    <td><?= $product["name"] ?></td>
-                    <td>x<?= $product["quantity"] ?></td>
-                    <td>
-                        <form class="m-0" method="post">
-                            <input class="d-none"
-                                   type="number"
-                                   name="id"
-                                   value="<?= $id ?>">
-                            <button type="submit"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#<?= $card_id_modal ?>"
-                                    class="btn btn-danger"
-                                    name="remove">
-                                Remove
-                            </button>
-                        </form>
-                    </td>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col"></th>
                 </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($products as $product) {
+                    $id = $product['id'];
+
+                    $card_id = "product_$id";
+                    $card_id_description = "{$card_id}_description";
+                    $card_id_modal = "{$card_id}_modal";
+                    $card_id_modal_label = "{$card_id_modal}_label";
+                    ?>
+                    <tr>
+                        <td>
+                            <img class="card-img"
+                                 style="width: 50px; height: 50px;"
+                                 src="images/<?= $product["image"] ?>.jpg" alt="">
+                        </td>
+                        <td><?= $product["name"] ?></td>
+                        <td>
+                            <form class="border rounded row align-items-center m-0" method="post">
+                                <button class="col btn"
+                                        type="submit"
+                                        name="reduce">
+                                    -
+                                </button>
+                                <input class="visually-hidden"
+                                       type="number"
+                                       name="id"
+                                       value="<?= $id ?>">
+                                <input class="visually-hidden"
+                                       type="number"
+                                       name="quantity"
+                                       value="<?= $_SESSION['cart'][$id] ?>">
+                                <span class="col border-start border-end">
+                                    <?= $_SESSION['cart'][$id] ?>
+                                </span>
+                                <button class="col btn"
+                                        type="submit"
+                                        name="add">
+                                    +
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form class="m-0" method="post">
+                                <input class="d-none"
+                                       type="number"
+                                       name="id"
+                                       value="<?= $id ?>">
+                                <button type="submit"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#<?= $card_id_modal ?>"
+                                        class="btn btn-danger"
+                                        name="remove">
+                                    Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        <?php } else { ?>
+            Empty Cart
+        <?php } ?>
     </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
